@@ -1,412 +1,420 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تعلم المفردات الطبية - Mrs Rehab Nabil</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>دار صفحات | متجر كتب احترافي</title>
   <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --primary: #4f46e5;
+      --primary-dark: #3730a3;
+      --text: #111827;
+      --muted: #6b7280;
+      --success: #059669;
+      --border: #e5e7eb;
+      --shadow: 0 12px 32px rgba(17, 24, 39, 0.08);
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: "Cairo", "Segoe UI", Tahoma, sans-serif;
     }
 
     body {
-      /* ===== خلفية الموقع ===== */
-      background: linear-gradient(135deg, #6a11cb, #2575fc); /* لو عايز صورة شيل السطر دا وحط تحت دا */
-      /* background: url("LINK_HERE") no-repeat center center/cover; */
-      background-size: 300% 300%;
-      animation: gradientBG 10s ease infinite;
-      color: #333;
-      min-height: 100vh;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: background 0.5s ease, color 0.5s ease;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
 
-    body.dark {
-      background: #1a1a1a;
-      color: #f5f5f5;
-    }
-
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .header {
-      text-align: center;
-      margin-bottom: 20px;
-      width: 100%;
-      max-width: 800px;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      position: relative;
-      transition: background 0.5s ease;
-    }
-
-    body.dark .header {
-      background: rgba(40, 40, 40, 0.95);
-    }
-
-    .header h1 {
-      color: #2575fc;
-      margin-bottom: 10px;
-      font-size: 2.2rem;
-    }
-
-    .header h2 {
-      color: #6a11cb;
-      font-weight: 600;
-      margin-bottom: 15px;
-    }
-
-    .developer {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      color: #6a11cb;
-      font-weight: bold;
-      font-size: 0.9rem;
-    }
-
-    .logo {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      color: #2575fc;
-      font-weight: bold;
-      font-size: 1.1rem;
-      letter-spacing: 1px;
-    }
-
-    .toggle-mode {
-      position: absolute;
-      bottom: 15px;
-      right: 15px;
-      background: linear-gradient(to right, #6a11cb, #2575fc);
-      border: none;
-      color: white;
-      padding: 8px 15px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: transform 0.2s ease;
-    }
-
-    .toggle-mode:hover {
-      transform: scale(1.1);
-    }
-
-    .search-box {
-      width: 100%;
-      max-width: 800px;
-      margin-bottom: 20px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .search-box input {
-      width: 100%;
-      padding: 12px;
-      font-size: 1rem;
-      border: 2px solid #2575fc;
-      border-radius: 30px;
-      outline: none;
-      transition: 0.3s ease;
-    }
-
-    .search-box input:focus {
-      border-color: #6a11cb;
-      box-shadow: 0 0 10px rgba(106, 17, 203, 0.4);
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
     .container {
-      width: 100%;
-      max-width: 800px;
-      background: white;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-      margin-bottom: 30px;
-      transition: background 0.5s ease;
+      width: min(1120px, 92%);
+      margin-inline: auto;
     }
 
-    body.dark .container {
-      background: #2a2a2a;
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.88);
+      border-bottom: 1px solid var(--border);
+      z-index: 20;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .cart-pill {
+      background: #eef2ff;
+      color: var(--primary-dark);
+      border: 1px solid #c7d2fe;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .hero {
+      padding: 56px 0 36px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      border-radius: 24px;
+      color: #fff;
+      padding: 36px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .hero p {
+      opacity: 0.95;
+      margin-bottom: 20px;
+      max-width: 55ch;
+    }
+
+    .btn {
+      border: none;
+      padding: 11px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-light {
+      background: #fff;
+      color: var(--primary-dark);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+      margin-bottom: 4px;
+    }
+
+    .controls {
+      margin: 12px 0 24px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .search,
+    .select {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 11px 14px;
+      font-size: 0.95rem;
+      min-width: 220px;
     }
 
     .section-title {
-      background: linear-gradient(to right, #6a11cb, #2575fc);
-      color: white;
-      padding: 15px 20px;
-      font-size: 1.4rem;
+      font-size: 1.35rem;
+      margin: 18px 0;
+      color: #1f2937;
+    }
+
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .book {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
       display: flex;
+      flex-direction: column;
+    }
+
+    .cover {
+      height: 185px;
+      background: linear-gradient(145deg, #e0e7ff, #ede9fe);
+      display: grid;
+      place-items: center;
+      color: var(--primary-dark);
+      font-size: 1.9rem;
+      font-weight: 800;
+    }
+
+    .book-content {
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
-    }
-
-    .word-pair {
-      display: flex;
-      border-bottom: 1px solid #eee;
-      transition: all 0.4s ease;
-      position: relative;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.8s ease forwards;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .word-pair:hover {
-      background-color: #f8f9ff;
-      transform: translateY(-2px);
-    }
-
-    .english, .arabic {
-      padding: 20px;
-      width: 45%;
-      text-align: center;
-      font-size: 1.3rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .english {
-      color: #2575fc;
-      border-left: 1px dashed #ddd;
-      font-weight: 600;
-    }
-
-    .arabic {
-      color: #6a11cb;
-      font-weight: 600;
-    }
-
-    .pronunciation-btn {
-      width: 10%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f0f5ff;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .btn-speak {
-      background: linear-gradient(to right, #6a11cb, #2575fc);
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 3px 8px rgba(106, 17, 203, 0.3);
-      font-size: 1.1rem;
-    }
-
-    .btn-speak:hover {
-      transform: scale(1.15);
-      box-shadow: 0 5px 12px rgba(106, 17, 203, 0.5);
-    }
-
-    .btn-speak:active {
-      animation: clickPulse 0.4s ease;
-    }
-
-    @keyframes clickPulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(0.9); }
-      100% { transform: scale(1); }
-    }
-
-    .footer {
-      text-align: center;
-      color: white;
+      gap: 8px;
       margin-top: auto;
-      padding: 20px;
-      font-size: 0.9rem;
-      width: 100%;
-      max-width: 800px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
     }
 
-    .footer .developer, .footer .logo {
+    .price {
+      font-weight: 800;
+      color: var(--success);
+    }
+
+    .btn-add {
+      background: var(--primary);
       color: white;
-      position: static;
+      padding: 8px 13px;
+      border-radius: 8px;
+      font-size: 0.86rem;
     }
 
-    @media (max-width: 600px) {
-      .word-pair {
-        flex-direction: column;
+    .features {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 36px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+
+    .feature {
+      padding: 12px;
+      border-radius: 12px;
+      background: #f9fafb;
+      border: 1px dashed #d1d5db;
+    }
+
+    footer {
+      background: #111827;
+      color: #e5e7eb;
+      margin-top: 36px;
+      padding: 26px 0;
+      font-size: 0.95rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
       }
-      .english, .arabic {
-        width: 100%;
-        border-left: none;
-        border-bottom: 1px dashed #eee;
-      }
-      .pronunciation-btn {
-        width: 100%;
-        padding: 10px;
-        border-top: 1px dashed #eee;
-      }
-      .header h1 {
-        font-size: 1.8rem;
-      }
-      .section-title {
-        font-size: 1.2rem;
-      }
-      .footer {
-        flex-direction: column;
-        gap: 10px;
+
+      .nav-links {
+        display: none;
       }
     }
   </style>
 </head>
 <body>
-  <div class="header">
-    <div class="developer">Ahmed Amer</div>
-    <div class="logo">AD2R7</div>
-    <h1>Mrs Rehab Nabil</h1>
-    <h2>المفردات الرئيسية الطبية</h2>
-    <p>انقر على زر النطق بجانب كل كلمة لسماع النطق الصحيح</p>
-    <button class="toggle-mode">🌙 الوضع الليلي</button>
-  </div>
-
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="ابحث عن كلمة بالعربي أو الإنجليزي...">
-  </div>
-
-  <div class="container">
-    <div class="section-title">
-      <span>المفردات الأساسية</span>
-      <i class="fas fa-book-medical"></i>
+  <header>
+    <div class="container nav">
+      <div class="brand">📚 دار صفحات</div>
+      <nav class="nav-links">
+        <a href="#books">الكتب</a>
+        <a href="#offers">العروض</a>
+        <a href="#features">لماذا نحن؟</a>
+        <a href="#contact">تواصل</a>
+      </nav>
+      <div class="cart-pill">السلة: <span id="cartCount">0</span> | <span id="cartTotal">0</span> ر.س</div>
     </div>
+  </header>
 
-    <div class="word-pair">
-      <div class="arabic">تعطي حركة / ثمر / نقطة</div>
-      <div class="english">administer</div>
-      <div class="pronunciation-btn">
-        <button class="btn-speak"><i class="fas fa-volume-up"></i></button>
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <h1>متجر كتب احترافي بتصميم عصري وتجربة شراء سهلة</h1>
+        <p>اكتشف أحدث الروايات، كتب تطوير الذات، والأعمال الأكثر مبيعًا مع شحن سريع ودفع آمن وخدمة عملاء ممتازة.</p>
+        <button class="btn btn-light" onclick="document.getElementById('books').scrollIntoView({behavior:'smooth'})">تصفح الكتب الآن</button>
       </div>
-    </div>
-
-    <div class="word-pair">
-      <div class="arabic">اهتمام / انتباه</div>
-      <div class="english">attention</div>
-      <div class="pronunciation-btn">
-        <button class="btn-speak"><i class="fas fa-volume-up"></i></button>
+      <div class="stats">
+        <div class="stat"><strong>+12,000</strong><span>كتاب متوفر</span></div>
+        <div class="stat"><strong>4.9/5</strong><span>تقييم العملاء</span></div>
+        <div class="stat"><strong>24 ساعة</strong><span>تجهيز الطلبات</span></div>
+        <div class="stat"><strong>دفع آمن</strong><span>مدى / فيزا / Apple Pay</span></div>
       </div>
-    </div>
+    </section>
 
-    <div class="word-pair">
-      <div class="arabic">فوضى</div>
-      <div class="english">chaos</div>
-      <div class="pronunciation-btn">
-        <button class="btn-speak"><i class="fas fa-volume-up"></i></button>
+    <section id="books">
+      <h2 class="section-title">مختارات الكتب</h2>
+      <div class="controls">
+        <input class="search" id="searchInput" type="text" placeholder="ابحث باسم الكتاب أو الكاتب..." />
+        <select class="select" id="categoryFilter">
+          <option value="all">كل التصنيفات</option>
+          <option value="رواية">رواية</option>
+          <option value="تطوير ذات">تطوير ذات</option>
+          <option value="أعمال">أعمال</option>
+          <option value="تاريخ">تاريخ</option>
+        </select>
       </div>
-    </div>
 
-    <div class="word-pair">
-      <div class="arabic">صدر</div>
-      <div class="english">chest</div>
-      <div class="pronunciation-btn">
-        <button class="btn-speak"><i class="fas fa-volume-up"></i></button>
+      <div class="book-grid" id="bookGrid">
+        <article class="book" data-title="أرض زيكولا" data-author="عمرو عبد الحميد" data-category="رواية" data-price="49">
+          <div class="cover">رواية</div>
+          <div class="book-content">
+            <h3>أرض زيكولا</h3>
+            <div class="meta">عمرو عبد الحميد • رواية</div>
+            <p>رحلة ممتعة في عالم خيالي مليء بالأحداث.</p>
+            <div class="price-row"><span class="price">49 ر.س</span><button class="btn btn-add">أضف للسلة</button></div>
+          </div>
+        </article>
+
+        <article class="book" data-title="العادات الذرية" data-author="جيمس كلير" data-category="تطوير ذات" data-price="65">
+          <div class="cover">تطوير</div>
+          <div class="book-content">
+            <h3>العادات الذرية</h3>
+            <div class="meta">جيمس كلير • تطوير ذات</div>
+            <p>خطوات عملية لبناء عادات إيجابية تدوم.</p>
+            <div class="price-row"><span class="price">65 ر.س</span><button class="btn btn-add">أضف للسلة</button></div>
+          </div>
+        </article>
+
+        <article class="book" data-title="الأب الغني والأب الفقير" data-author="روبرت كيوساكي" data-category="أعمال" data-price="58">
+          <div class="cover">أعمال</div>
+          <div class="book-content">
+            <h3>الأب الغني والأب الفقير</h3>
+            <div class="meta">روبرت كيوساكي • أعمال</div>
+            <p>مفاهيم مالية أساسية لبناء مستقبل اقتصادي قوي.</p>
+            <div class="price-row"><span class="price">58 ر.س</span><button class="btn btn-add">أضف للسلة</button></div>
+          </div>
+        </article>
+
+        <article class="book" data-title="تاريخ الأندلس" data-author="مجموعة مؤلفين" data-category="تاريخ" data-price="72">
+          <div class="cover">تاريخ</div>
+          <div class="book-content">
+            <h3>تاريخ الأندلس</h3>
+            <div class="meta">مجموعة مؤلفين • تاريخ</div>
+            <p>قراءة ثرية في حضارة الأندلس وتأثيرها الثقافي.</p>
+            <div class="price-row"><span class="price">72 ر.س</span><button class="btn btn-add">أضف للسلة</button></div>
+          </div>
+        </article>
       </div>
-    </div>
+    </section>
 
-    <div class="word-pair">
-      <div class="arabic">يغوار / ينهار</div>
-      <div class="english">collapse</div>
-      <div class="pronunciation-btn">
-        <button class="btn-speak"><i class="fas fa-volume-up"></i></button>
-      </div>
-    </div>
+    <section id="features" class="features">
+      <div class="feature"><h3>شحن سريع</h3><p>توصيل خلال 2-4 أيام عمل داخل المملكة.</p></div>
+      <div class="feature"><h3>دعم متواصل</h3><p>خدمة عملاء يومية عبر الواتساب والبريد.</p></div>
+      <div class="feature"><h3>عروض أسبوعية</h3><p>خصومات حتى 35% على أفضل العناوين.</p></div>
+      <div class="feature"><h3>استرجاع مرن</h3><p>إرجاع خلال 7 أيام وفق الشروط.</p></div>
+    </section>
+  </main>
 
-    <div class="word-pair">
-      <div class="arabic">الوعي / الإدراك</div>
-      <div class="english">consciousness</div>
-      <div class="pronunciation-btn">
-        <button class="btn-speak"><i class="fas fa-volume-up"></i></button>
-      </div>
+  <footer id="contact">
+    <div class="container footer-inner">
+      <span>© 2026 دار صفحات - جميع الحقوق محفوظة</span>
+      <span>للتواصل: support@dar-safahat.com</span>
     </div>
-  </div>
-
-  <div class="container">
-    <div class="section-title">
-      <span>المصطلحات الطبية</span>
-      <i class="fas fa-heartbeat"></i>
-    </div>
-    <div class="word-pair">
-      <div class="arabic">الإسعافات القلبية الأولية</div>
-      <div class="english">CPR (cardiopulmonary resuscitation)</div>
-      <div class="pronunciation-btn">
-        <button class="btn-speak"><i class="fas fa-volume-up"></i></button>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer">
-    <div class="developer">Developed by: Ahmed Amer</div>
-    <div class="logo">AD2R7</div>
-  </div>
+  </footer>
 
   <script>
-    // زر النطق
-    document.querySelectorAll('.btn-speak').forEach(button => {
-      button.addEventListener('click', () => {
-        window.speechSynthesis.cancel();
-        const englishWord = button.closest('.word-pair').querySelector('.english').textContent.trim();
-        const speech = new SpeechSynthesisUtterance();
-        speech.text = (englishWord.includes("CPR")) ? "C P R" : englishWord;
-        speech.lang = 'en-US';
-        speech.volume = 1;
-        speech.rate = 0.8; 
-        speech.pitch = 1;
-        window.speechSynthesis.speak(speech);
-      });
-    });
-
-    // زر الوضع الليلي
-    const toggleBtn = document.querySelector('.toggle-mode');
-    toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-      toggleBtn.textContent = document.body.classList.contains('dark') ? "☀️ الوضع الفاتح" : "🌙 الوضع الليلي";
-    });
-
-    // البحث
     const searchInput = document.getElementById('searchInput');
-    searchInput.addEventListener('keyup', () => {
-      const filter = searchInput.value.toLowerCase();
-      document.querySelectorAll('.word-pair').forEach(pair => {
-        const arabic = pair.querySelector('.arabic').textContent.toLowerCase();
-        const english = pair.querySelector('.english').textContent.toLowerCase();
-        if (arabic.includes(filter) || english.includes(filter)) {
-          pair.style.display = "flex";
-        } else {
-          pair.style.display = "none";
-        }
+    const categoryFilter = document.getElementById('categoryFilter');
+    const books = Array.from(document.querySelectorAll('.book'));
+    const cartCountEl = document.getElementById('cartCount');
+    const cartTotalEl = document.getElementById('cartTotal');
+
+    let cartCount = 0;
+    let cartTotal = 0;
+
+    function filterBooks() {
+      const term = searchInput.value.trim().toLowerCase();
+      const category = categoryFilter.value;
+
+      books.forEach((book) => {
+        const title = book.dataset.title.toLowerCase();
+        const author = book.dataset.author.toLowerCase();
+        const bookCategory = book.dataset.category;
+
+        const matchesSearch = title.includes(term) || author.includes(term);
+        const matchesCategory = category === 'all' || bookCategory === category;
+
+        book.style.display = matchesSearch && matchesCategory ? 'flex' : 'none';
+      });
+    }
+
+    searchInput.addEventListener('input', filterBooks);
+    categoryFilter.addEventListener('change', filterBooks);
+
+    document.querySelectorAll('.btn-add').forEach((button) => {
+      button.addEventListener('click', () => {
+        const book = button.closest('.book');
+        const price = Number(book.dataset.price);
+        cartCount += 1;
+        cartTotal += price;
+        cartCountEl.textContent = cartCount;
+        cartTotalEl.textContent = cartTotal;
+
+        button.textContent = 'تمت الإضافة ✓';
+        button.disabled = true;
+        setTimeout(() => {
+          button.textContent = 'أضف للسلة';
+          button.disabled = false;
+        }, 1200);
       });
     });
   </script>
